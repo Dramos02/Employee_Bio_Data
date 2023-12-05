@@ -12,62 +12,151 @@ $data = json_decode ($retrieve, 1);
     <tr>
         <td>Picture</td>
         <td>:</td>
-        <td><input type="text" name="picture" value="<?php echo $data['picture']?>"></td>
+        <td><input type="text" name="picture" placeholder="imgurl" value="<?php echo $data['picture']?>" required></td>
     </tr>
     <tr>
         <td>Last Name</td>
         <td>:</td>
-        <td><input type="text" name="Lname" value="<?php echo $data['Lname']?>"></td>
+        <td><input type="text" name="Lname" placeholder="Last Name" value="<?php echo $data['Lname']?>" required></td>
     </tr>
     <tr>
         <td>First Name</td>
         <td>:</td>
-        <td><input type="text" name="Fname" value="<?php echo $data['Fname']?>"></td>
+        <td><input type="text" name="Fname" placeholder="First Name" value="<?php echo $data['Fname']?>" required></td>
     </tr>
     <tr>
         <td>Middle Name</td>
         <td>:</td>
-        <td><input type="text" name="Mname" value="<?php echo $data['Mname']?>"></td>
+        <td><input type="text" name="Mname" placeholder="Middle Name" value="<?php echo $data['Mname']?>" required></td>
     </tr>
     <tr>
         <td>Age </td>
         <td>:</td>
-        <td><input type="number" name="age"  min="16" max="99"  value="<?php echo $data['age']?>"></td>
+        <td><input type="number" name="age"  min="16" max="99"  placeholder="XX" value="<?php echo $data['age']?>" required></td>
     </tr>
     <tr>
         <td>Gender</td>
         <td>:</td>
-        <td><input type="text" name="gender" value="<?php echo $data['gender']?>" ></td>
+        <td><input type="text" name="gender" placeholder="Male/Female" value="<?php echo $data['gender']?>" required></td>
     </tr>
     <tr>
         <td>Civil Status</td>
         <td>:</td>
-        <td><input type="text" name="civilstatus" value="<?php echo $data['civilstatus']?>"></td>
+        <td><input type="text" name="civilstatus" placeholder="Single/Married/Widower/Annulled/Legally Separated" value="<?php echo $data['civilstatus']?>" required></td>
     </tr>
     <tr>
         <td>Email</td>
         <td>:</td>
-        <td><input type="email" name="email" value="<?php echo $data['email']?>"></td>
+        <td><input type="email" name="email" placeholder="email@email.com" value="<?php echo $data['email']?>" required></td>
     </tr>
     <tr>
         <td>Contact Number</td>
         <td>:</td>
-        <td><input type="number" name="contactnumber" value="<?php echo $data['contactnumber']?>"></td>
+        <td><input type="number" name="contactnumber" pattern="09\d{9}" title="Please enter 11 digits start with 09" placeholder="09XXXXXXX" value="<?php echo $data['contactnumber']?>" required></td>
     </tr>
     <tr>
         <td>SSS NO</td>
         <td>:</td>
-        <td><input type="text" name="sssNo" value="<?php echo $data['sssNo']?>"></td>
+        <td><input type="text" name="sssNo" pattern="\d{2}-\d{7}-\d{1}" title="Please enter a valid SSS number" placeholder="XX-XXXXXXXX-X" value="<?php echo $data['sssNo']?>"required></td>
     </tr>
     <tr>
         <td>PAG IBIG NO</td>
         <td>:</td>
-        <td><input type="text" name="pagibigNo" value="<?php echo $data['pagibigNo']?>"></td>
+        <td><input type="text" name="pagibigNo" pattern="\d{4}-\d{4}-\d{4}" title="Please enter a valid PAG IBIG number" placeholder="XXXX-XXXX-XXXX" value="<?php echo $data['pagibigNo']?>" required></td>
     </tr>
     <tr>
         <td><input type="hidden" name="id" value="<?php echo $id?>">
-        <input type="submit" value="SAVE"></button></td>
+        <input type="submit" class="button-save" value="SAVE"></td>
 
     </tr>
 </table>
 </form>
+
+<style>
+        body {
+            font-family: Arial, sans-serif; 
+            background-image: url('userinputbg.jpg');
+            background-size: cover;
+            background-position: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: auto;
+        }
+
+        form {
+            --input-focus: #2d8cf0;
+            --font-color: #323232;
+            --font-color-sub: #666;
+            --bg-color: beige;
+            --main-color: black;
+            padding: 20px;
+            background: lightblue;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+            gap: 20px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            box-shadow: 4px 4px var(--main-color);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        td {
+            color: var(--font-color);
+            font-weight: 750;
+            font-size: 20px;
+            margin-bottom: 25px;
+            padding: 10px;
+        }
+
+        input {
+            width: 300px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            background-color: var(--bg-color);
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--font-color);
+            padding: 5px 10px;
+            outline: none;
+        }
+
+        .input::placeholder {
+            color: var(--font-color-sub);
+            opacity: 0.8;
+        }
+
+        .input::placeholder {
+            color: var(--font-color-sub);
+            opacity: 0.8;
+        }
+
+        .button-save {
+            background-color: #4caf50;
+            margin: 50px auto 0 auto;
+            width: 120px;
+            height: 40px;
+            border-radius: 5px;
+            border: 2px solid var(--main-color);
+            border-radius: 4px;
+            box-shadow: 4px 4px var(--main-color);
+            font-size: 17px;
+            font-weight: 600;
+            color: var(--font-color);
+            cursor: pointer;
+        }
+
+        .button-save:hover {
+            background-color: #45a049;
+        }
+    </style>
